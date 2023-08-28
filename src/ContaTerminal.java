@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class ContaTerminal {
 
 	private String nomeCliente;
@@ -50,8 +52,45 @@ public class ContaTerminal {
 	@Override
 	public String toString() {
 		return String.format(
-				"\nOlá %s obrigado por criar uma conta em nosso banco, sua agência é %s, conta %d e seu saldo R$%.2f já está disponível para saque.",
+				"\nOlï¿½ %s obrigado por criar uma conta em nosso banco, sua agï¿½ncia ï¿½ %s, conta %d e seu saldo R$%.2f jï¿½ estï¿½ disponï¿½vel para saque.",
 				nomeCliente, agencia, numero, saldo);
 	}
-			
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		String nomeCliente;
+		String agencia;
+		int numero;
+		double saldo;
+
+		try {
+			System.out.println("Bem Vindo Ao Sistema de Cadastro \n");
+
+			System.out.print("Nome do Cliente: ");
+			nomeCliente = scanner.nextLine();
+
+			System.out.print("\nAgÃªncia: ");
+			agencia = scanner.nextLine();
+
+			System.out.print("\nConta: ");
+			numero = scanner.nextInt();
+
+			System.out.print("\nSaldo: ");
+			saldo = scanner.nextDouble();
+
+			ContaTerminal novoCliente = new ContaTerminal();
+			novoCliente.setNomeCliente(nomeCliente);
+			novoCliente.setAgencia(agencia);
+			novoCliente.setNumero(numero);
+			novoCliente.setSaldo(saldo);
+
+			System.out.println(novoCliente);
+		} catch (Exception e) {
+			System.out.println("\nDigite uma informaÃ§Ã£o vÃ¡lida. Cadastro Cancelado.");
+		}
+
+		scanner.close();
+	}
+
 }
