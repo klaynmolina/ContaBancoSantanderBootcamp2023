@@ -46,5 +46,12 @@ public class ContaTerminal {
 	public void setSaldo(Double saldo) {
 		this.saldo = saldo;
 	}
+
+	@Override
+	public String toString() {
+		return String.format(
+				"\nOlá %s obrigado por criar uma conta em nosso banco, sua agência é %s, conta %d e seu saldo R$%.2f já está disponível para saque.",
+				nomeCliente, agencia, numero, saldo);
+	}
 			
 }
